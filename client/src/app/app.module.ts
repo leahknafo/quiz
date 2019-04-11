@@ -7,8 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { AboutComponent } from './about/about.component';
 import { QuizzesListComponent } from './quizzes-list/quizzes-list.component';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './user/login/login/login.component';
+import { Jwt } from './interceptors/jwt';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import {FormsModule} from '@angular/forms';
     HomeComponent,
     QuizComponent,
     AboutComponent,
-    QuizzesListComponent
+    QuizzesListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,14 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Jwt,
+      multi: true
+    }
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

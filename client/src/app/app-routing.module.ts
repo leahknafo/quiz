@@ -4,12 +4,15 @@ import { AboutComponent } from './about/about.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { HomeComponent } from './home/home.component';
 import { QuizzesListComponent } from './quizzes-list/quizzes-list.component';
+import { LoginComponent } from './user/login/login/login.component';
+import { LoggedGuard } from './guards/logged-guard';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, pathMatch: 'full'},
-  {path:'quiz', component: QuizzesListComponent, pathMatch: 'full'},
-  {path:'about', component: AboutComponent, pathMatch: 'full'},
-  {path:'quiz/:id', component: QuizComponent, pathMatch: 'full'}
+  {path: '', redirectTo: 'login', pathMatch: 'full' },
+  {path: 'login', component: LoginComponent  },
+  {path:'quiz', component: QuizzesListComponent, canActivate: [LoggedGuard] },
+  {path:'about', component: AboutComponent, canActivate: [LoggedGuard]},
+  {path:'quiz/:id', component: QuizComponent, canActivate: [LoggedGuard]}
 ];
 
 @NgModule({
