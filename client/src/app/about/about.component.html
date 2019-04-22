@@ -1,3 +1,9 @@
-<p>
-  about works!
-</p>
+
+<form>
+    <div class="form-group col-3">
+        <br>
+      <input type="text" class="form-control"  placeholder="Enter quiz" [(ngModel)]='quizModel.name' name="name">
+    </div>
+    <input type="button" value="Add" (click)="addQuiz()">
+  </form>
+

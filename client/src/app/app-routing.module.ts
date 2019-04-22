@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
   {path: 'login', component: LoginComponent  },
   {path:'quiz', component: QuizzesListComponent, canActivate: [LoggedGuard] },
-  {path:'about', component: AboutComponent, canActivate: [LoggedGuard]},
+  {path:'add', component: AboutComponent, canActivate: [LoggedGuard]},
   {path:'quiz/:id', component: QuizComponent, canActivate: [LoggedGuard]}
 ];
 

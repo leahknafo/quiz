@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Quiz } from '../models/quiz';
+import { QuizService } from "../services/quiz.service";
+
 
 @Component({
   selector: 'app-about',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-
-  constructor() { }
-
+  quizModel: Quiz;
   ngOnInit() {
+  }
+
+  constructor(private quizService: QuizService) { 
+    this.quizModel=<Quiz>{};
+  }
+
+  
+  addQuiz() {
+
+    this.quizService.post(this.quizModel).subscribe(res => {
+      console.log(res);
+    });
   }
 
 }
