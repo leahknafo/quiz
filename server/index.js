@@ -75,6 +75,53 @@ app.post('/add', function (req, res) {
 
     })
 })
+// app.get('/todo-list', function (req, res) {
+//     var temp=[];
+//     var temp2=[];
+//     var the_result=undefined;
+//         let sql = "SELECT * FROM housework"
+//         connection.query(sql, function (err, result, fields) {
+//             if (err) throw err;
+//             for(let i=0; i<result.length; i++){
+//             temp2.push(result[i].id_family_member)
+//             }
+//             the_result=result;
+//         })
+//         setTimeout(function(){
+//         for(let i=0; i<temp2.length; i++){
+//         let sql1 = "SELECT `name` FROM `family-members` WHERE id = " + temp2[i]
+//         connection.query(sql1, function (err, result2, fields) {
+//             if (err) throw err;
+//             temp.push(result2) 
+//         }) 
+//     }
+//     setTimeout(function(){
+//     for(let i=0; i<temp.length; i++){
+//     the_result[i].id_family_member = temp[i][0].name;
+//     }
+//     res.send(the_result);
+//     }, 100);
+//     }, 50);
+//     });
+    
+    
+//     app.post('/add-todo', function (req, res) {
+//         let sql1 = "SELECT `id` FROM `family-members` WHERE name ='"+ req.body.id_family_member +"'"
+//         connection.query(sql1, function (err, result3, fields) {
+//             if (err) throw err;
+//             console.log(result3)
+//            req.body.id_family_member=result3[0].id;
+//            console.log(req.body)
+//         })
+//         setTimeout(function(){
+//         let sql = "INSERT INTO housework SET?"
+//         connection.query(sql, req.body, function (err, result) {
+//             if (err) throw err;
+//             res.json("ok");
+    
+//         })
+//     }, 200);
+//     })
 
 
 app.listen(PORT, function () {
